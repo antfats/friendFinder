@@ -1,5 +1,5 @@
 
-
+//Exporting it so server can read it
 module.exports = function (app) {
     //Routes
     app.get("/", function (req, res) {
