@@ -41,89 +41,62 @@
         <h2 style="border-top:solid" style="border:grey">Question One:</h2>
         <p>You like to take walks.</p>
         <!--Dropdown Menu-->
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonOne"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select an option: </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" value=1>1</a>
-                <a class="dropdown-item" value=2>2</a>
-                <a class="dropdown-item" value=3>3</a>
-                <a class="dropdown-item" value=4>4</a>
-                <a class="dropdown-item" value=5>5</a>
-            </div>
-        </div>
+        <select id="dropdownOne">
+            <option value="1">Gastronomie</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">3</option>
+            <option value="5">Shopping</option>
+            <option value="bildung">Bildung</option>
+        </select>
 
         <h2>Question Two:</h2>
         <p>You like to take walks.</p>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonTwo"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                Select an option:</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" value=1>1</a>
-                <a class="dropdown-item" value=2>2</a>
-                <a class="dropdown-item" value=3>3</a>
-                <a class="dropdown-item" value=4>4</a>
-                <a class="dropdown-item" value=5>5</a>
-            </div>
-        </div>
+        <select id="dropdownTwo">
+            <option value="1">Gastronomie</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">3</option>
+            <option value="5">Shopping</option>
+            <option value="bildung">Bildung</option>
+        </select>
 
         <h2>Question Three:</h2>
         <p>You like dogs</p>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonThree"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                Select an option: </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" value=1>1</a>
-                <a class="dropdown-item" value=2>2</a>
-                <a class="dropdown-item" value=3>3</a>
-                <a class="dropdown-item" value=4>4</a>
-                <a class="dropdown-item" value=5>5</a>
-            </div>
-        </div>
+        <select id="dropdownThree">
+            <option value="1">Gastronomie</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">3</option>
+            <option value="5">Shopping</option>
+            <option value="bildung">Bildung</option>
+        </select>
 
         <h2 style="border:grey">Question Four:</h2>
         <p>You like cats</p>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonFour"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <select id="dropdownFour">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
 
-                Select an option:</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" value=1>1</a>
-                <a class="dropdown-item" value=2>2</a>
-                <a class="dropdown-item" value=3>3</a>
-                <a class="dropdown-item" value=4>4</a>
-                <a class="dropdown-item" value=5>5</a>
-            </div>
-        </div>
+        </select>
+
 
         <h2 style="border:grey">Question Five:</h2>
         <p>You would rather stay home versus go out and party</p>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonFive"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                Select an option:</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" value=1>1</a>
-                <a class="dropdown-item" value=2>2</a>
-                <a class="dropdown-item" value=3>3</a>
-                <a class="dropdown-item" value=4>4</a>
-                <a class="dropdown-item" value=5>5</a>
-            </div>
-        </div>
+        <select id="dropdownFive">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
 
         <button type="button" id="submitBtn" class="btn btn-primary btn-lg btn-block">Submit</button>
     </div>
-    <script>
-
-    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -133,6 +106,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+
+        $("#submitBtn").click(function () {
+            var newPerson = {
+                answerOne: $("#dropdownOne").val().trim(),
+                answerTwo: $("#dropdownTwo").val().trim(),
+                answerThree: $("#dropdownThree").val().trim(),
+                answerFour: $("#dropdownFour").val().trim(),
+                answerFive: $("#dropdownFive").val().trim()
+            }
+
+            console.log(person)
+        });
+        $.post("../data/friends.js", newPerson, function (data) {
+            
+        });
+
+    </script>
+
 </body>
 
 </html>
