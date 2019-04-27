@@ -23,7 +23,7 @@
         <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
-            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            <input id="name" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
         <br>
@@ -32,7 +32,7 @@
         <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
-            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" id="photo" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
 
             <div> </div>
         </div>
@@ -106,21 +106,38 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
 
         $("#submitBtn").click(function () {
-            var newPerson = {
-                answerOne: $("#dropdownOne").val().trim(),
-                answerTwo: $("#dropdownTwo").val().trim(),
-                answerThree: $("#dropdownThree").val().trim(),
-                answerFour: $("#dropdownFour").val().trim(),
-                answerFive: $("#dropdownFive").val().trim()
-            }
 
-            console.log(person)
-        });
-        $.post("../data/friends.js", newPerson, function (data) {
+
+            answerOne = $("#dropdownOne").val().trim(),
+                answerTwo = $("#dropdownTwo").val().trim(),
+                answerThree = $("#dropdownThree").val().trim(),
+                answerFour = $("#dropdownFour").val().trim(),
+                answerFive = $("#dropdownFive").val().trim()
+
+            var totalScore = answerOne
+            totalScore += answerTwo
+            totalScore += answerThree
+            totalScore += answerFour
+            totalScore += answerFive
+
+            totalScore = parseInt(totalScore);
             
+            var scores = ("" + totalScore).split("");
+
+            var newPerson =
+            {
+                name: $("#name").val(),
+                photoURL: $("#photo").val(),
+                scores: scores
+            }
+            $.post("/api/friends", newPerson,
+                function (data) {
+                    alert("Yay! You've been added :)")
+                });
         });
 
     </script>
