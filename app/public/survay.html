@@ -111,28 +111,32 @@
 
         $("#submitBtn").click(function () {
 
+            //All answers are saved and converted to an int
+            let answerOne = $("#dropdownOne").val().trim();
+            let answerTwo = $("#dropdownTwo").val().trim();
+            let answerThree = $("#dropdownThree").val().trim();
+            let answerFour = $("#dropdownFour").val().trim();
+            let answerFive = $("#dropdownFive").val().trim();
+            answerOne = parseInt(answerOne)
+            answerTwo = parseInt(answerTwo)
+            answerThree = parseInt(answerThree)
+            answerFour = parseInt(answerFour)
+            answerFive = parseInt(answerFive)
 
-            answerOne = $("#dropdownOne").val().trim(),
-                answerTwo = $("#dropdownTwo").val().trim(),
-                answerThree = $("#dropdownThree").val().trim(),
-                answerFour = $("#dropdownFour").val().trim(),
-                answerFive = $("#dropdownFive").val().trim()
-
-            var totalScore = answerOne
-            totalScore += answerTwo
-            totalScore += answerThree
-            totalScore += answerFour
-            totalScore += answerFive
-
-            totalScore = parseInt(totalScore);
+            //answers are then pushed to an empty array
             
-            var scores = ("" + totalScore).split("");
+            var totalScore = [];
+            totalScore.push(answerOne);
+            totalScore.push(answerTwo);
+            totalScore.push(answerThree);
+            totalScore.push(answerFour);
+            totalScore.push(answerFive);
 
             var newPerson =
             {
                 name: $("#name").val(),
                 photoURL: $("#photo").val(),
-                scores: scores
+                scores: totalScore
             }
             $.post("/api/friends", newPerson,
                 function (data) {
